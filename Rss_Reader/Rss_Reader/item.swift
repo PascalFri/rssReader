@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+//item stores the informations for one item in an Channel
 class Item: NSObject{
     
     //MARK: Properties
@@ -25,14 +25,14 @@ class Item: NSObject{
         
         let dateString = pubDate
         let dateFormatter = DateFormatter()
-        // Our date format needs to match our input string format
+        // date format needs to match input string format
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
         self.pubDate = dateFormatter.date(from: dateString ?? "29-05-2036")! as NSDate
         self.category = category ?? ""
-        self.author = author ?? "God"
+        self.author = author ?? ""
     }
-    // TODO: getter einsetzen
+    
     func getTitle() -> String{
         return title
     }

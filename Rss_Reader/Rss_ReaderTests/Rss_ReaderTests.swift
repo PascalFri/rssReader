@@ -41,6 +41,12 @@ class Rss_ReaderTests: XCTestCase {
         XCTAssertEqual("International Forum for Aviation Research", result)
         
     }
+    
+    func testDetails() {
+        let loader = LoadData.init();
+        let rssData = loader.getRssData(url: URL(string: "http://newsfeed.zeit.de/index")!)
+        
+    }
 
     
     

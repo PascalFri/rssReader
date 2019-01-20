@@ -687,7 +687,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="200" y="240" width="696" height="500"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -699,7 +699,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="77" y="365"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -709,9 +709,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ct8-Hi-dJE">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ct8-Hi-dJE">
                                 <rect key="frame" x="14" y="222" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="load" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l8W-g9-Pah">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -720,48 +719,82 @@
                                     <action selector="load:" target="XfG-lQ-9wD" id="r6p-1c-Vyk"/>
                                 </connections>
                             </button>
-                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVe-Gj-vLd">
-                                <rect key="frame" x="211" y="115" width="240" height="135"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="Sna-hb-097">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="135"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" spellingCorrection="YES" smartInsertDelete="YES" id="J3p-2x-MKX">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="135"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="240" height="135"/>
-                                            <size key="maxSize" width="240" height="10000000"/>
-                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        </textView>
-                                    </subviews>
-                                </clipView>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="sWF-xz-z22">
-                                    <rect key="frame" x="224" y="0.0" width="16" height="135"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="77d-hF-fCR">
-                                <rect key="frame" x="26" y="78" width="194" height="114"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="77d-hF-fCR">
+                                <rect key="frame" x="86" y="229" width="72" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="mWc-qL-IT5"/>
+                                </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="08g-Hc-RDA">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kqt-yW-UPD" customClass="FeedStackViewController" customModule="Rss_Reader">
+                                <rect key="frame" x="30" y="29" width="163" height="192"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="lGw-lg-DoQ" customClass="FeedChannelViewController" customModule="Rss_Reader">
+                                        <rect key="frame" x="0.0" y="0.0" width="163" height="192"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZJ-Jw-JiB">
+                                                <rect key="frame" x="18" y="155" width="127" height="17"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="6c9-2g-QyC">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                    </customView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="959-6V-PFA" customClass="ChannelStackViewController" customModule="Rss_Reader">
+                                <rect key="frame" x="209" y="29" width="246" height="192"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="hzK-z8-CNh" customClass="ItemViewCellController" customModule="Rss_Reader">
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="192"/>
+                                    </customView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="959-6V-PFA" secondAttribute="trailing" constant="25" id="4lA-1R-ybP"/>
+                            <constraint firstAttribute="bottom" secondItem="Kqt-yW-UPD" secondAttribute="bottom" constant="29" id="7nF-3l-EIl"/>
+                            <constraint firstItem="Kqt-yW-UPD" firstAttribute="bottom" secondItem="959-6V-PFA" secondAttribute="bottom" id="TiI-Mj-ACq"/>
+                            <constraint firstItem="ct8-Hi-dJE" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="UQq-K7-FgT"/>
+                            <constraint firstItem="77d-hF-fCR" firstAttribute="leading" secondItem="ct8-Hi-dJE" secondAttribute="trailing" constant="14" id="Wu1-vg-Lqa"/>
+                            <constraint firstItem="Kqt-yW-UPD" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="cEr-do-Tf4"/>
+                            <constraint firstItem="ct8-Hi-dJE" firstAttribute="baseline" secondItem="77d-hF-fCR" secondAttribute="firstBaseline" id="e3E-zb-R7x"/>
+                            <constraint firstItem="Kqt-yW-UPD" firstAttribute="top" secondItem="77d-hF-fCR" secondAttribute="bottom" constant="8" symbolic="YES" id="eCn-ac-erE"/>
+                            <constraint firstItem="Kqt-yW-UPD" firstAttribute="top" secondItem="959-6V-PFA" secondAttribute="top" id="gZZ-RE-mA6"/>
+                            <constraint firstItem="ct8-Hi-dJE" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="pxO-6X-ABq"/>
+                            <constraint firstItem="ct8-Hi-dJE" firstAttribute="bottom" secondItem="77d-hF-fCR" secondAttribute="bottom" id="ux7-Z3-HR8"/>
+                            <constraint firstItem="959-6V-PFA" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="209" id="yAV-GB-T08"/>
+                            <constraint firstItem="959-6V-PFA" firstAttribute="leading" secondItem="Kqt-yW-UPD" secondAttribute="trailing" constant="16" id="ypE-JD-rkZ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="label" destination="77d-hF-fCR" id="Kvu-vE-S0e"/>
-                        <outlet property="scrollView" destination="aVe-Gj-vLd" id="NGx-ck-7j0"/>
+                        <outlet property="rssFeedChannelStackView" destination="959-6V-PFA" id="ZjV-3P-K8N"/>
+                        <outlet property="rssFeedSelecterStackView" destination="Kqt-yW-UPD" id="9M0-LB-X01"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="77" y="968"/>
         </scene>
     </scenes>
 </document>

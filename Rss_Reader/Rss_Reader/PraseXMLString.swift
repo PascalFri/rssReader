@@ -13,7 +13,7 @@ class PraseXMLString: NSObject {
         var content = ""
         if source.contains(type) {
             
-            // in the source the Substring with regex-pattern willbe relplaced by 😀
+            // in the source the Substring with regex-pattern willbe relplaced by 😀 and ☹️
             var regex = try! NSRegularExpression(pattern: "\\/" + type, options: NSRegularExpression.Options.caseInsensitive)
             var range = NSMakeRange(0, source.count)
             var modifyedSource = regex.stringByReplacingMatches(in: source, options: [], range: range, withTemplate: "☹️")

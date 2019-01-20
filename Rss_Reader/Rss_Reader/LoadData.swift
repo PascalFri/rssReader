@@ -33,38 +33,49 @@ class LoadData: NSObject {
             }
             
             
-            var rssData = String(data: data!, encoding: .utf8)!
-            self.xmlPrasing(rssData: rssData)
+            let rssData = String(data: data!, encoding: .utf8)!
+            let channel = self.xmlPrasing(rssData: rssData)
+            //store the channeldata here:
+            
+            
         }
         task.resume()
     }
     
     
-    func xmlPrasing(rssData: String) {
-        // TODO: item und channel Instancen speichern  oder  direckt in das User Interface
-        let regex = try! NSRegularExpression(pattern: "<item>", options: NSRegularExpression.Options.caseInsensitive)
-        let range = NSMakeRange(0, rssData.count)
-        var modifyedRssData = regex.stringByReplacingMatches(in: rssData, options: [], range: range, withTemplate: "⏸")
-        
-        var dataArray = modifyedRssData.split(separator: "⏸")
-        var count = 0
-        let praser = PraseXMLString.init()
-        let channelTitle = praser.getItemInformations(source: String(dataArray[0]), type: "title")
-        let channellink = praser.getItemInformations(source: String(dataArray[0]), type: "link")
-        let channelDescription = praser.getItemInformations(source: String(dataArray[0]), type: "description")
-        let language = praser.getItemInformations(source: String(dataArray[0]), type: "language ")
-        let channelInstance = Channel.init(title: channelTitle, link: channellink, channelDescription: channelDescription, language: language)
-        
-        dataArray.remove(at: 0)
+    fileprivate func getInformations(_ dataArray: [String.SubSequence], _ praser: PraseXMLString, _ items: inout [Item], _ count: inout Int) {
         for informations in dataArray{
             let title = praser.getItemInformations(source: String(informations), type: "title")
             let description = praser.getItemInformations(source: String(informations), type: "description")
             let link = praser.getItemInformations(source: String(informations), type: "link")
             
-            let itemInstance = Item.init(title: title, link: link, itemDescription: description, pubDate: nil, category: nil, author: nil)
+            
+            let item = Item.init(title: title, link: link, itemDescription: description, pubDate: nil, category: nil, author: nil)
+            items.append(item)
             count += 1
         }
+    }
+    
+    func xmlPrasing(rssData: String) -> Channel{
+        // TODO: item und channel Instancen speichern  oder  direckt in das User Interface
+        let regex = try! NSRegularExpression(pattern: "<item>", options: NSRegularExpression.Options.caseInsensitive)
+        let range = NSMakeRange(0, rssData.count)
         
+        let modifyedRssData = regex.stringByReplacingMatches(in: rssData, options: [], range: range, withTemplate: "⏸")
+        var dataArray = modifyedRssData.split(separator: "⏸")
+        var count = 0
+        let praser = PraseXMLString.init()
+        let channelTitle = praser.getItemInformations(source: String(dataArray[0]), type: "title")
+        let channellink = URL(string: praser.getItemInformations(source: String(dataArray[0]), type: "link"))!
+        let channelDescription = praser.getItemInformations(source: String(dataArray[0]), type: "description")
+        let language = praser.getItemInformations(source: String(dataArray[0]), type: "language ")
+        
+        var items: [Item] = []
+        dataArray.remove(at: 0)
+        getInformations(dataArray, praser, &items, &count)
+        let data = Channel.init(title: channelTitle, link: channellink, channelDescription: channelDescription, language: language,items: items )
+        
+        return data;
     }
     
 }
