@@ -21,8 +21,8 @@ class Channel: NSObject, NSCoding {
     var items: [Item]
     
     // MARK: Archiving Paths
-    static var DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendPathComponent("channel")
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("channel")
     
     // MARK: Types
     struct PropertyKey {

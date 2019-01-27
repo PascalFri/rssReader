@@ -9,6 +9,11 @@ import Cocoa
 
 class FeedTableCellView: NSTableCellView {
 
+    //MARK: Properties
+    
+    @IBOutlet weak var feedNameLabel: NSTextField!
+
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 

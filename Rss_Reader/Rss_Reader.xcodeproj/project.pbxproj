@@ -18,6 +18,7 @@
 		97AC9B9B21E1447300FD2CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97AC9B9921E1447300FD2CE3 /* Main.storyboard */; };
 		97AC9BA721E1447300FD2CE3 /* Rss_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC9BA621E1447300FD2CE3 /* Rss_ReaderTests.swift */; };
 		97AC9BB221E1447300FD2CE3 /* Rss_ReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AC9BB121E1447300FD2CE3 /* Rss_ReaderUITests.swift */; };
+		97C30F1021FDAB3A00D15CF7 /* RssTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C30F0F21FDAB3A00D15CF7 /* RssTableViewController.swift */; };
 		97E5DCF721E90CB9006C972F /* PraseXMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5DCF621E90CB9006C972F /* PraseXMLString.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		97AC9BAD21E1447300FD2CE3 /* Rss_ReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rss_ReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97AC9BB121E1447300FD2CE3 /* Rss_ReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rss_ReaderUITests.swift; sourceTree = "<group>"; };
 		97AC9BB321E1447300FD2CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97C30F0F21FDAB3A00D15CF7 /* RssTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssTableViewController.swift; sourceTree = "<group>"; };
 		97E5DCF621E90CB9006C972F /* PraseXMLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PraseXMLString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 				97E5DCF621E90CB9006C972F /* PraseXMLString.swift */,
 				971ADB2C21EA20CB00CEB8CD /* item.swift */,
 				978BFAF821EA432F00E99826 /* Channel.swift */,
+				97C30F0F21FDAB3A00D15CF7 /* RssTableViewController.swift */,
 				977450D021F64824005BEC96 /* FeedTableCellView.swift */,
 				97AC9B9921E1447300FD2CE3 /* Main.storyboard */,
 				97AC9B9C21E1447300FD2CE3 /* Info.plist */,
@@ -286,6 +289,7 @@
 				971ADB2D21EA20CB00CEB8CD /* item.swift in Sources */,
 				97E5DCF721E90CB9006C972F /* PraseXMLString.swift in Sources */,
 				9771E6F021E51B3A00749833 /* LoadData.swift in Sources */,
+				97C30F1021FDAB3A00D15CF7 /* RssTableViewController.swift in Sources */,
 				977450D121F64824005BEC96 /* FeedTableCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,9 +6,13 @@
 //
 
 import Cocoa
+import os.log
+
 
 class LoadData: NSObject {
 
+    var rssCannels = [Channel]()
+    
     func getRssData(url: URL){
         // Set up the URL request
         let urlRequest = URLRequest(url: url)
@@ -36,7 +40,7 @@ class LoadData: NSObject {
             let rssData = String(data: data!, encoding: .utf8)!
             let channel = self.xmlPrasing(rssData: rssData)
             //store the channeldata here:
-            
+            self.saveRss()
             
         }
         task.resume()
@@ -78,4 +82,18 @@ class LoadData: NSObject {
         return data;
     }
     
+    
+    //MARK: Private Methods
+    private func saveRss(){
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(rssCannels, toFile: Channel.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("RssChannel successfully saved.", log: OSLog.default, type: .debug)
+        }else{
+            os_log("Failed to save RssChannel...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadRss() -> [Channel]?{
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Channel.ArchiveURL.path) as? [Channel]
+    }
 }
