@@ -25,16 +25,14 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadData()
         // Do any additional setup after loading the view.
+        loadData()
         tableView.delegate = self
         tableView.dataSource = self
         
     }
 
     fileprivate func loadData() {
-        print("loading...")
         
         let loadData = LoadData.init()
         // create an url and load the data from the url
@@ -70,7 +68,6 @@ class ViewController: NSViewController {
     }
     
     func reloadFileList() {
-        print("reloading data")
         tableView.reloadData()
     }
     
@@ -97,6 +94,7 @@ extension ViewController: NSTableViewDelegate {
             text = channelList![feedCount].title
             cellIdentifier = CellIdentifiers.FeedCell
             feedCount+=1
+            
         } else if tableColumn == tableView.tableColumns[1] && feedCount < channelList?.count ?? 0 {
             text = channelList![feedCount].getItems()[itemCount].getTitle()
             cellIdentifier = CellIdentifiers.EinträgeCell

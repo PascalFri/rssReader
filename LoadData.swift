@@ -111,23 +111,6 @@ class LoadData: NSObject {
             count += 1
         }
     }
-    
-    //MARK: Private Methods
-    private func saveRss(){
-        print("i have to save something")
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(rssChannel, toFile: Channel.ArchiveURL.path)
-        if isSuccessfulSave {
-            os_log("RssChannel successfully saved.", log: OSLog.default, type: .debug)
-        }else{
-            os_log("Failed to save RssChannel...", log: OSLog.default, type: .error)
-        }
-    }
-    
-    private func loadRss() -> Channel?{
-        print("I have to load something")
-        //return NSKeyedUnarchiver.unarchivedObject(ofClass: Channel.self, from: Channel.ArchiveURL.path)
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Channel.ArchiveURL.path) as? Channel
-    }
 }
 
 
